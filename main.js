@@ -46,11 +46,11 @@ function saveToDoList(){
         status
        });
     })
-    localStorage.setItem('todoList', JSON.stringify(todoStorage));
+    localStorage.setItem('todoListLocal', JSON.stringify(todoStorage));
 
 }
 function init(){
-    let data = JSON.parse(localStorage.getItem('todoList'));
+    let data = JSON.parse(localStorage.getItem('todoListLocal'));
     data.forEach(function(item){
         addToDoElement(item);
     })
