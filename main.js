@@ -16,7 +16,8 @@ function addToDoElement(todo){
    var li = document.createElement('li'); 
    li.innerHTML =   `
                      <span>${todo.text}</span>
-                     <i class="fas fa-trash"></i>
+                     <i id="delete" class="fas fa-trash"></i>
+                     <i id="edit" class="fas fa-edit"></i>
                     `  
      if(todo.status === 'completed'){
         li.setAttribute('class','completed')
@@ -25,9 +26,12 @@ function addToDoElement(todo){
         this.classList.toggle('completed')
         saveToDoList();
     })
-    li.querySelector('i').addEventListener('click',function(){
+    li.querySelector('#delete').addEventListener('click',function(){
         this.parentElement.remove(); 
         saveToDoList();
+    })
+    li.querySelector('#edit').addEventListener('click',function(){
+        input.value = todo.text;
     })
      todoList.appendChild(li);
 }
